@@ -19,6 +19,7 @@ export class HomeTabsPage extends AuthPage{
 
   ionViewCanEnter() {
     super.ionViewCanEnter();
+    
   }
 
 }

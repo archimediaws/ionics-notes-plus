@@ -18,8 +18,11 @@ export class AuthPage {
       console.log(auth);
         if( !auth ) {
         this.navCtrl.setRoot('AuthTabsPage');
+        
       }
     });
   }
+
+
 
 }

@@ -63,4 +63,10 @@ export class AuthService {
     return this.storage.set('access_token', token);
   }
 
+
+  removeToken() {
+     return this.storage.remove('access_token');
+    
+  }
+
 }
