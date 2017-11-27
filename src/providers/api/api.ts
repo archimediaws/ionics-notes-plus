@@ -13,7 +13,7 @@ import {Headers} from "@angular/http";
 export class ApiProvider {
 
   private token: string;
-  private apiUrl: string = 'http://archimedia.ws/notes/Api-ionic-notes-plus/';
+  private apiUrl: string = 'http://developpeurwebapplimobile.com/';
 
   constructor(public http: HttpClient, public storage: Storage) {}
 
