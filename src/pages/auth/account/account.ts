@@ -44,7 +44,6 @@ export class AccountPage {
       this.authProvider.getAccountData().subscribe(response => {
 
         if( response['success'] ) {   //  Tout s'est bien déroulé
-
           //  On remplit le formulaire avec ces données
           this.accountData.setValue({
             email:  response['user'].email,
@@ -55,7 +54,6 @@ export class AccountPage {
           });
           resolve();
         } else {            //  Erreur côté serveur ou token manquant
-
           //  Petit toast d'erreur !
           let toast = this.toastCtrl.create({
             message: response['error'],
