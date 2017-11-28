@@ -13,7 +13,7 @@ import {Headers} from "@angular/http";
 export class ApiProvider {
 
   private token: string;
-  private apiUrl: string = 'http://developpeurwebapplimobile.com/';
+  private apiUrl: string = 'http://idem-api.alexandre-ribes.fr/';
 
   constructor(public http: HttpClient, public storage: Storage) {}
 
