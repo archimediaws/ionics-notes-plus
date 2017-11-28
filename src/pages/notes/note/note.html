@@ -1,24 +1,28 @@
 <ion-header>
-  
-    <ion-navbar>
-      <ion-title>{{ note.title }}</ion-title>
-      <ion-buttons>
-        <button ion-button icon-only (click)="closeModal()">
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{ note.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{ note.content }}
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
+
+  <ion-navbar>
+    <ion-title>{{ note.title }}</ion-title>
+    <ion-buttons right end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>{{ note.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content text-justify>
+      {{ note.content }}
+    </ion-card-content>
+  </ion-card>
+
+  <div padding>
+    <button ion-button color="primary" block full (click)="shareNote()">Partager la note</button>
+  </div>
+</ion-content>

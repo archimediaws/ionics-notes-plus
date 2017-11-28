@@ -1,18 +1,16 @@
-import {ApiProvider} from '../api/api';
 import { Injectable } from '@angular/core';
+import {ApiProvider} from "../api/api";
 
-/*
-  Generated class for the NoteProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class NoteProvider {
 
+  /**
+   * Constructor
+   * @param {ApiProvider} api
+   */
   constructor(public api: ApiProvider) {}
 
-/**
+  /**
    * Liste de toutes les notes pour un utilisateur (ID)
    *
    * @param id
@@ -87,7 +85,5 @@ export class NoteProvider {
   put(id, body) {
     return this.api.post('note/' + id, body)
   }
-
-
 
 }

@@ -29,6 +29,7 @@ export class AuthPage {
     this.authService.checkAuthentified().then(auth => {
       console.log(auth);
         if( !auth ) {
+
       }
     });
     */

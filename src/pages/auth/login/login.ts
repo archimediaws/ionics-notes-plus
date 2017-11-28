@@ -45,7 +45,7 @@ export class LoginPage {
   /**
    * Direction la page d'inscription
    */
-  gotoregister() {
+  goToRegister() {
     this.navCtrl.setRoot('RegisterPage');
   }
 
@@ -56,12 +56,14 @@ export class LoginPage {
     //  Envoi des données vers notre API
     this.authProvider.login(this.loginData.value.email, this.loginData.value.password).subscribe(response => {
       if( response['success'] ) {   //  Connexion réussie
+
         //  On sauvegarde toutes les données utiles en local (token + id de l'utilisateur)
         this.authService.storeCredentials(response['token'], response['user'].id).then(() => {
           //  Direction la page d'accueil après sauvegarde des données
           this.app.getRootNavs()[0].setRoot('HomeTabsPage');
         });
       } else {    //  Echec de connexion
+
         //  On affiche un message d'erreur
         let toast = this.toastCtrl.create({
           message: response['error'],

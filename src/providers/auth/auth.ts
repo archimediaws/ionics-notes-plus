@@ -66,6 +66,5 @@ export class AuthProvider {
   updateAccount(data) {
     return this.api.post('account/update', data);
   }
-  
 
 }

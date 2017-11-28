@@ -1,50 +1,50 @@
-
 <ion-header>
-  
-    <ion-navbar>
-      <ion-buttons left start>
-        <button ion-button icon-only (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>
-        </button>
-      </ion-buttons>
-      <ion-title>Mon compte</ion-title>
-      <ion-buttons right end>
-        <button ion-button icon-only (click)="closeModal()">
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding class="auth-form">
-  
-    <form [formGroup]="accountData" (ngSubmit)="submit()">
-      <ion-card>
-        <ion-list inset no-padding>
-          <ion-item>
-            <ion-input type="text" placeholder="Votre adresse email" formControlName="email"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="text" placeholder="Votre nom" formControlName="lastname"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="text" placeholder="Votre prénom" formControlName="firstname"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="password" placeholder="Mot de passe" formControlName="password" ></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="password" placeholder="Confirmation" formControlName="passwordConfirmation"></ion-input>
-          </ion-item>
-        </ion-list>
-  
-        <button ion-item  color="primary" block full text-center [disabled]="!accountData.valid">Soumettre</button>
-      </ion-card>
-    </form>
-  </ion-content>
+
+  <ion-navbar>
+    <ion-buttons left start>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Mon compte</ion-title>
+    <ion-buttons right end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="auth-form">
+
+  <form [formGroup]="accountData" (ngSubmit)="submit()">
+    <ion-card>
+      <ion-list inset no-padding>
+        <ion-item>
+          <ion-input type="text" placeholder="Votre adresse email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Votre nom" formControlName="lastname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Votre prénom" formControlName="firstname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" placeholder="Mot de passe" formControlName="password" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" placeholder="Confirmation" formControlName="passwordConfirmation"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button ion-item  color="primary" block full text-center [disabled]="!accountData.valid">Soumettre</button>
+    </ion-card>
+  </form>
+</ion-content>
+

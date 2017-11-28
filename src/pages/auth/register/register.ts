@@ -48,6 +48,7 @@ export class RegisterPage {
     this.authProvider.register(this.registerData.value).subscribe(response => {
       console.log(response);
       if( response['success'] ) {   //  Inscription réussie !
+
           //  On sauvegarde notre token et l'id de l'user en local pour plus tard
          this.authService.storeCredentials(response['token'], response['user'].id);
 
@@ -70,6 +71,7 @@ export class RegisterPage {
            //this.app.getRootNav().setRoot('HomeTabsPage');
          });
       } else {      //  Aie, soucis d'inscription
+
         //  On ferme le loade, ça ne sert à rien qu'il tourne pour rien.
         loader.dismiss();
 
@@ -93,7 +95,7 @@ export class RegisterPage {
   /**
    * Direction la page de connexion
    */
-  gotoLogin() {
+  goToLogin() {
     this.navCtrl.setRoot('LoginPage');
   }
 }

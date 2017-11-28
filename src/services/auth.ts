@@ -1,12 +1,12 @@
-import {Events, App} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {Injectable} from "@angular/core";
+import {App, Events} from "ionic-angular";
 
 @Injectable()
 export class AuthService {
 
-  public userId: number;
   public token: string;
+  public userId: number;
   public isAuth: boolean = false;
 
   constructor(public storage: Storage, public app: App, public events: Events){
@@ -92,17 +92,5 @@ export class AuthService {
     this.storage.remove('access_token').then(() => {
       this.events.publish('user:login', false);
     });
-  }   
-  storeToken(token) {
-    this.isAuth = true;
-    this.token = token;
-    return this.storage.set('access_token', token);
   }
-
-
-  removeToken() {
-     return this.storage.remove('access_token');
-    
-  }
-
 }
