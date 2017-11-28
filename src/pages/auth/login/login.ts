@@ -20,6 +20,15 @@ export class LoginPage {
     });
   }
 
+  ionViewCanEnter() {
+    this.authService.checkAuthentified().then(auth => {
+      if( auth ) {
+        this.navCtrl.setRoot('HomeTabsPage');
+      }
+    });
+  }
+
+
   submitLogin() {
     this.authProvider.login(this.loginData.value.email, this.loginData.value.password).subscribe(response => {
       if( response['success'] ) {

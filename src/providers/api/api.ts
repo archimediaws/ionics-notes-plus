@@ -18,22 +18,26 @@ export class ApiProvider {
   constructor(public http: HttpClient, public storage: Storage) {}
 
   get(endpoint, params ?: any) {
-    return this.http.get(this.apiUrl + endpoint, params);
-  }
+    return this.http.get(this.apiUrl + endpoint, {
+      params: params,
+    });
+}
 
-  post(endpoint, body) {
-    //let headers = new HttpHeaders();
-    //headers.set('Content-Type', 'application/json');
-    return this.http.post(this.apiUrl + endpoint, body);
-  }
+post(endpoint, body, options ?: any) {
+  return this.http.post(this.apiUrl + endpoint, body, options);
+}
 
-  put(endpoint, body) {
-    return this.http.put(this.apiUrl + endpoint, body);
-  }
+put(endpoint, body, options ?: any) {
+  return this.http.put(this.apiUrl + endpoint, body, options);
+}
 
-  delete(endpoint, body) {
-    return this.http.delete(this.apiUrl + endpoint);
-  }
+delete(endpoint, body) {
+  return this.http.delete(this.apiUrl + endpoint);
+}
+
+patch(endpoint, body) {
+  return this.http.patch(this.apiUrl + endpoint, body);
+}
 
   
 }

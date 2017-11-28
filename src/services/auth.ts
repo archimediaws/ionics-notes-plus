@@ -1,3 +1,4 @@
+import {Events, App} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
@@ -9,7 +10,9 @@ export class AuthService {
   public token: string;
   public isAuth: boolean = false;
 
-  constructor(public storage: Storage){}
+  constructor(public storage: Storage, public app: App, public events: Events){
+    //this.storage.remove('access_token');
+  }
 
   /*
   checkAuth() {
@@ -44,19 +47,61 @@ export class AuthService {
     });
   }
 
-  getId() {
-    if( !this.id ) {
-      this.storage.get('user_id').then(id => {
+  getId(): Promise <any> {
+    
+        return new Promise((resolve) => {
+          this.storage.get('user_id').then(userId => {
+            if( userId ) {
+              console.log(userId);
+              this.id = userId;
+              resolve(userId);
+              return userId;
+            }
+            resolve(null);
+            return null;
+          });
+        });
+      }
+
+      storeId(id) {
+        this.id = id;
+        this.storage.set('user_id', id);
+      }
+      
+      storeCredentials(token, id ?: number) {
+        this.isAuth = true;
+        this.token = token;
+    
+        this.events.publish('user:login', true);
+    
         if( id ) {
           this.id = id;
-          return id;
+          this.storage.set('user_id', id);
         }
-      });
-    }
+        return this.storage.set('access_token', token);
+      }
+    
+      logout() {
+        this.storage.remove('user_id');
+        this.storage.remove('access_token').then(() => {
+          this.events.publish('user:login', false);
+        });
+      }
 
-    return this.id;
-  }
-
+      getToken() {
+        return this.token;
+        /*
+        return new Promise((resolve) => {
+          this.storage.get('access_token').then(token => {
+            console.log(token);
+            resolve(token);
+            return token;
+          });
+        });
+        /*
+         */
+      }
+      
   storeToken(token) {
     this.isAuth = true;
     this.token = token;

@@ -9,7 +9,7 @@ import {AuthService} from "../../../services/auth";
 })
 export class AuthPage {
 
-  public isAuth: boolean = false;
+  
 
   constructor(public authService: AuthService, public navCtrl: NavController) {}
 
