@@ -11,7 +11,7 @@ import {AuthService} from "../../services/auth";
 export class ApiProvider {
 
   //  URL de notre API en ligne
-  private apiUrl: string = 'http://idem-api.alexandre-ribes.fr/';
+  private apiUrl: string = 'http://developpeurwebapplimobile.com/';
 
   /**
    * Constructeur
